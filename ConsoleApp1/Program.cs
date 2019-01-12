@@ -433,6 +433,41 @@ namespace ConsoleApp1
             Console.WriteLine("Orig : {0} Cast : {1}",
                 num1.GetType(), num2.GetType());
 
+            // ----- CONDITIONALS -----
+            // ----- IF / ELSE / -----
+            // Relational Operators : > < >= <= == !=
+            // Logical Operators : && || !
+
+            int age = 17;
+
+            if ((age >= 5) && (age <= 7))
+            {
+                Console.WriteLine("Go to elementary school");
+            }
+            else if ((age > 7) && (age < 13))
+            {
+                Console.WriteLine("Go to middle school");
+            }
+            else if ((age > 13) && (age < 19))
+            {
+                Console.WriteLine("Go to high school");
+            }
+            else
+            {
+                Console.WriteLine("Go to college");
+            }
+
+            if ((age < 14) || (age > 67))
+            {
+                Console.WriteLine("You shouldn't work");
+            }
+
+            Console.WriteLine("! true = " + (!true));
+
+
+
+
+
             // Excepts input up until a newline, but it is here to 
             // keep the console open after output
             // Read() excepts a single character
