@@ -495,6 +495,20 @@ namespace ConsoleApp1
         OtherSchool:
             Console.WriteLine("Elementary, Middle, High School");
 
+            // To compare strings use Equals
+            string name = "Derek";
+            string name2 = "Derek";
+
+            if (name.Equals(name2, StringComparison.Ordinal))
+            {
+                Console.WriteLine("Names are Equal");
+            } else
+            {
+                Console.WriteLine("Names are not Equals");
+            }
+
+
+
             // Excepts input up until a newline, but it is here to 
             // keep the console open after output
             // Read() excepts a single character
