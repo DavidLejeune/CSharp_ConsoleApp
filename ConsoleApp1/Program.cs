@@ -16,14 +16,22 @@ namespace ConsoleApp1
             //SayHello();
             //PrintArgs(args);
             //PrintArgsAsJoinedStringList(args);
-            DataTypes();
-
+            //DataTypes();
+            OutputFormatting();
 
 
             Console.ReadLine();
             
         }
 
+
+        private static void OutputFormatting()
+        {
+            Console.WriteLine("Currency : {0:c}", 23.455);
+            Console.WriteLine("Pad with 0s : {0:d4}", 23);
+            Console.WriteLine("3 Decimals : {0:f3}", 23.45555);
+            Console.WriteLine("Commas and decimals : {0:n4}", 2300);
+        }
 
         private static void DataTypes()
         {
