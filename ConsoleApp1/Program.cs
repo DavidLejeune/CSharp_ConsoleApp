@@ -464,7 +464,10 @@ namespace ConsoleApp1
 
             Console.WriteLine("! true = " + (!true));
 
-
+            // Ternary Operator
+            // Assigns the 1st value if true and otherwise 
+            // the 2nd
+            bool canDrive = age >= 16 ? true : false;
 
 
 
