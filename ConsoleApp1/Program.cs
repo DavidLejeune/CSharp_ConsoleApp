@@ -2,6 +2,13 @@
 using System.Collections;
 using System.Numerics;
 
+// Needed for StringBuilder
+using System.Text;
+using System.Threading.Tasks;
+
+// For culture specific formating
+using System.Globalization;
+
 // You use a namespace to define globally unique objects
 namespace ConsoleApp1
 {
@@ -230,6 +237,20 @@ namespace ConsoleApp1
 
             // Verbatim strings ignore escape characters
             Console.Write(@"Exactly What I Typed");
+
+            // ----- IMPLICIT TYPING -----
+            // You can use var to have C# figure out the 
+            // data type
+
+            var intVal = 1234;
+
+            Console.WriteLine("\nintVal Type : {0}",
+                intVal.GetType());
+
+
+
+
+
 
             // Excepts input up until a newline, but it is here to 
             // keep the console open after output
