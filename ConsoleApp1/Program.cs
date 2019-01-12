@@ -425,6 +425,13 @@ namespace ConsoleApp1
 
             Console.WriteLine("Remove : {0}", sb2.ToString());
 
+            // ----- CASTING -----
+            // If you want to cast from one type to another
+            long num1 = 1234;
+            int num2 = (int)num1;
+
+            Console.WriteLine("Orig : {0} Cast : {1}",
+                num1.GetType(), num2.GetType());
 
             // Excepts input up until a newline, but it is here to 
             // keep the console open after output
