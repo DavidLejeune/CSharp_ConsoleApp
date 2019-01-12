@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 
 namespace ConsoleApp1
 {
@@ -13,7 +14,14 @@ namespace ConsoleApp1
             {
                 Console.WriteLine("Arg {0} : {1} ", i , args[i]);
             }
+
+            string[] myArgs = Environment.GetCommandLineArgs();
+            Console.WriteLine(string.Join(", ", myArgs));
+
             Console.ReadLine();
+
+
         }
+        
     } 
 }
