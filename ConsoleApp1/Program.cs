@@ -18,15 +18,39 @@ namespace ConsoleApp1
             //PrintArgsAsJoinedStringList(args);
             //DataTypes();
             OutputFormatting();
+            PlayWithStrings();
+
 
 
             Console.ReadLine();
-            
+
+        }
+
+        private static void PlayWithStrings()
+        {
+            Console.WriteLine("\nPlayWithStrings");
+            string randString = "This is a string";
+            Console.WriteLine("String length : {0}", randString.Length);
+            Console.WriteLine("String contains word is : {0}", randString.Contains("is"));
+            Console.WriteLine("Index of is  : {0}", randString.IndexOf("is"));
+            Console.WriteLine("Remove string : {0}", randString.Remove(0,6));
+            Console.WriteLine("Insert string : {0}", randString.Insert(10, "short "));
+            Console.WriteLine("Replace String : {0}", randString.Replace("string", "sentence"));
+            Console.WriteLine("Compare A to B : {0}", String.Compare("A", "B", StringComparison.OrdinalIgnoreCase));
+            Console.WriteLine("Compare A to a : {0}", String.Equals("A", "a", StringComparison.OrdinalIgnoreCase));
+            Console.WriteLine("Add left : {0}", randString.PadLeft(20, '.'));
+            Console.WriteLine("Add right : {0}", randString.PadLeft(20, '-'));
+            Console.WriteLine("Trim white space : {0}", randString.Trim());
+            Console.WriteLine("Uppercase : {0}", randString.ToUpper());
+            Console.WriteLine("Lowercase : {0}", randString.ToLower());
+            string newString = String.Format("{0} saw a {1} {2} in the {3}", "Paul", "rabbit", "eating", "field");
+            Console.Write(newString + "\n");
         }
 
 
         private static void OutputFormatting()
         {
+            Console.WriteLine("\nOutputFormatting");
             Console.WriteLine("Currency : {0:c}", 23.455);
             Console.WriteLine("Pad with 0s : {0:d4}", 23);
             Console.WriteLine("3 Decimals : {0:f3}", 23.45555);
