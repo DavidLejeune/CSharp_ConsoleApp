@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Numerics;
 
 namespace ConsoleApp1
 {
@@ -16,6 +17,7 @@ namespace ConsoleApp1
             //PrintArgs(args);
             //PrintArgsAsJoinedStringList(args);
             DataTypes();
+
 
 
             Console.ReadLine();
@@ -64,6 +66,9 @@ namespace ConsoleApp1
             lunchTime = lunchTime.Subtract(new TimeSpan(0, 25, 0));
             Console.WriteLine("New TimeSpan : {0}", lunchTime);
 
+            Console.WriteLine("BIG INTEGERS");
+            BigInteger bigNum = BigInteger.Parse("12345");
+            Console.WriteLine("Big Numbers * 2 = {0}", bigNum * 2);
         }
 
 
