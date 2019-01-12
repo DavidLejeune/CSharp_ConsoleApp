@@ -246,7 +246,7 @@ namespace ConsoleApp1
 
             Console.WriteLine("\nintVal Type : {0}",
                 intVal.GetType());
-
+                  
             // ----- ARRAYS -----
             // Arrays are just boxes inside of a bigger box
             // that can contain many values of the same
@@ -290,7 +290,64 @@ namespace ConsoleApp1
                 i, randomArray[i]);
             }
 
+            // Multidimensional arrays
+            // When you define an array like arrName[5] you
+            // are saying you want to create boxes stacked 
+            // vertically
 
+            // If you define arrName[2,2] you are saying
+            // you want to have 2 rows high and 2 across
+            string[,] custNames = new string[2, 2] { { "Bob", "Smith" }, { "Sally", "Smith2" } };
+
+            // Get value in MD array
+            Console.WriteLine("MD Value : {0}",
+                custNames.GetValue(1, 1));
+
+            // Cycle through the multidimensional array
+            // Get length of multidimensional array column
+            for (int i = 0; i < custNames.GetLength(0); i++)
+            {
+                // Get length of multidimensional array row
+                for (int j = 0; j < custNames.GetLength(1); j++)
+                {
+                    Console.Write("{0} ", custNames[i, j]);
+                }
+                Console.WriteLine();
+            }
+
+            // An array like arrName[2,2,3] would be like a 
+            // stack of 3 spread sheets with 2 rows and 2
+            // columns worth of data on each page
+
+            // foreach can be used to cycle through an array
+            int[] randNums = { 1, 4, 9, 2 };
+
+            // You can pass an array to a function
+            PrintArray(randNums, "ForEach");
+
+            // Sort array
+            Array.Sort(randNums);
+
+            // Reverse array
+            Array.Reverse(randNums);
+
+            // Get index of match or return -1
+            Console.WriteLine("1 at index : {0} ",
+                Array.IndexOf(randNums, 1));
+
+            // Change value at index 1 to 0
+            randNums.SetValue(0, 1);
+
+            // Copy part of an array to another
+            int[] srcArray = { 1, 2, 3 };
+            int[] destArray = new int[2];
+            int startInd = 0;
+            int length = 2;
+
+            Array.Copy(srcArray, startInd, destArray,
+                startInd, length);
+
+            PrintArray(destArray, "Copy");
 
 
 
@@ -316,6 +373,18 @@ namespace ConsoleApp1
             Console.WriteLine("Hello {0}", name);
         }
 
+        static void PrintArray(int[] intArray, string mess)
+        {
+            foreach (int k in intArray)
+            {
+                Console.WriteLine("{0} : {1} ", mess, k);
+            }
+        }
+
+        private static bool GT10(int val)
+        {
+            return val > 10;
+        }
     }
 }
 
