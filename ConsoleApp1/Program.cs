@@ -349,6 +349,28 @@ namespace ConsoleApp1
 
             PrintArray(destArray, "Copy");
 
+            // Create an array with CreateInstance
+            Array anotherArray = Array.CreateInstance(typeof(int), 10);
+
+            // Copy values in srcArray to destArray starting
+            // at index 5 in destination
+            srcArray.CopyTo(anotherArray, 5);
+
+            foreach (int m in anotherArray)
+            {
+                Console.WriteLine("CopyTo : {0} ", m);
+            }
+
+            // Search for an element that matches the conditions
+            // defined by the specified predicate
+            int[] numArray = { 1, 11, 22 };
+            Console.WriteLine("> 10 : {0}", Array.Find(numArray, GT10));
+
+            // FindAll returns an array with all values that
+            // match 
+            // FindIndex returns the index of the match
+
+
 
 
             // Excepts input up until a newline, but it is here to 
