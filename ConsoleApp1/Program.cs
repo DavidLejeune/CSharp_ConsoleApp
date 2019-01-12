@@ -11,7 +11,7 @@ namespace ConsoleApp1
             Console.WriteLine("These are the args : ");
             for (int i = 0; i < args.Length; i++)
             {
-                Console.WriteLine(args[i]);
+                Console.WriteLine("Arg {0} : {1} ", i , args[i]);
             }
             Console.ReadLine();
         }
