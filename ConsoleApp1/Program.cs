@@ -40,6 +40,16 @@ namespace ConsoleApp1
             Console.WriteLine("15 * 2 = {0}",
                 solution);
 
+            // ----- PASS BY REFERENCE -----
+            int num1 = 10;
+            int num2 = 20;
+
+            Console.WriteLine("Before Swap num1 : {0} num2 : {1}", num1, num2);
+
+            Swap(ref num1, ref num2);
+
+            Console.WriteLine("After Swap num1 : {0} num2 : {1}", num1, num2);
+
 
 
 
@@ -56,6 +66,17 @@ namespace ConsoleApp1
         static void DoubleIt(int x, out int solution)
         {
             solution = x * 2;
+        }
+
+        // ----- PASS BY REFERENCE -----
+        // If a variable is passed by reference changes
+        // to its value in the method effect it outside
+        // of the method
+        public static void Swap(ref int num1, ref int num2)
+        {
+            int temp = num1;
+            num1 = num2;
+            num2 = temp;
         }
 
         // ----- PASS BY VALUE -----
