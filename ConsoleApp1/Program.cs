@@ -14,70 +14,70 @@ namespace ConsoleApp1
 
         static void Main(string[] args)
         {
+            Animal whiskers = new Animal()
+            {
+                Name = "Whiskers",
+                Sound = "Meow"
+            };
 
-            Animal cat = new Animal();
+            Dog grover = new Dog()
+            {
+                Name = "Grover",
+                Sound = "Woof",
+                Sound2 = "Grrrrr"
+            };
 
-            // Call the setter
-            cat.SetName("Whiskers");
+            // Demonstrate changing the protected
+            // field sound
+            grover.Sound = "Wooooof";
 
-            // Set the property
-            cat.Sound = "Meow";
+            whiskers.MakeSound();
+            grover.MakeSound();
 
-            Console.WriteLine("The cat is named {0} and says {1}",
-                cat.GetName(), cat.Sound);
+            // Define the AnimalIDInfo
+            whiskers.SetAnimalIDInfo(12345, "Sally Smith");
+            grover.SetAnimalIDInfo(12346, "Paul Brown");
 
-            // Test auto generated getters and setters
-            cat.Owner = "Derek";
+            whiskers.GetAnimalIDInfo();
 
-            Console.WriteLine("{0} owner is {1}",
-                cat.GetName(), cat.Owner);
+            // Test the inner class
+            Animal.AnimalHealth getHealth = new Animal.AnimalHealth();
 
-            // Get the read-only id number
-            Console.WriteLine("{0} shelter id is {1}",
-                cat.GetName(), cat.idNum);
+            Console.WriteLine("Is my animal healthy : {0}", getHealth.HealthyWeight(11, 46));
 
-            // Test static property
-            Console.WriteLine("# of Animals : {0}",
-                Animal.NumOfAnimals);
+            // You can define 2 Animal objects but have
+            // one actually be a Dog type. 
+            Animal monkey = new Animal()
+            {
+                Name = "Happy",
+                Sound = "Eeeeee"
+            };
+
+            Animal spot = new Dog()
+            {
+                Name = "Spot",
+                Sound = "Wooooff",
+                Sound2 = "Geerrrr"
+            };
+
+            // The problem is that if you call a 
+            // function in Animal it won't call
+            // the overridden method in Dog unless
+            // the method that might be overridden
+            // is marked virtual
+            spot.MakeSound();
+
+            // This is an example of how Polymorphism
+            // allows a subclass to override a method
+            // in the super class and even if the 
+            // subclass is defined as the super class
+            // type the correct method will be called
 
 
             Console.ReadLine();
 
-            // Excepts input up until a newline, but it is here to 
-            // keep the console open after output
-            // Read() excepts a single character
-            Console.ReadLine();
-
-        }
-
-        // ----- STRUCTS -----
-        // A struct is a user defined type that
-        // contain multiple fields and methods
-
-        struct Rectangle
-        {
-            public double length;
-            public double width;
-
-            // You can create a constructor method
-            // that will set the values for fields
-            public Rectangle(double l = 1, double w = 1)
-            {
-                length = l;
-                width = w;
-            }
-
-            public double Area()
-            {
-                return length * width;
-            }
         }
 
     }
 
-
-
-
-
 }
-
