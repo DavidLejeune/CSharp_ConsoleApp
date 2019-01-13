@@ -15,20 +15,14 @@ namespace ConsoleApp1
         static void Main(string[] args)
         {
 
-            // ----- PARAMS -----
-            // You are able to pass a variable amount
-            // of data of the same data type into a 
-            // method using params. You can also pass
-            // in an array. 
-            Console.WriteLine("1 + 2 + 3 + 5 = {0}",
-                GetSumMore(1, 2, 3, 5));
+            // ----- ENUM -----
+            CarColor car1 = CarColor.Blue;
+            PaintCar(car1);
 
-            // ----- NAMED PARAMETERS -----
-            // You can pass values in any order if
-            // you used named parameters
-            PrintInfo(zipCode: 15147,
-                name: "Derek Banas");
 
+            Console.ReadLine();
+
+             
 
 
             // Excepts input up until a newline, but it is here to 
@@ -38,26 +32,30 @@ namespace ConsoleApp1
 
         }
 
+        // ----- ENUM -----
+        // ----- ENUM -----
+        // An enum is a custom data type with
+        // key value pairs. They allow you to
+        // use symbolic names to represent data
+        // The first number is 0 by default unless
+        // you change it
+        // You can define the underlying type
+        // or leave it as int as default
 
-        // ----- PARAMS -----
-        // The params array must be the last parameter
-        // in the list
-        static double GetSumMore(params double[] nums)
+        enum CarColor : byte
         {
-            double sum = 0;
-            foreach (int i in nums)
-            {
-                sum += i;
-            }
-            return sum;
+            Orange = 1,
+            Blue,
+            Green,
+            Red,
+            Yellow
         }
 
-        // ----- NAMED PARAMETERS -----
-        static void PrintInfo(string name, int zipCode)
+        static void PaintCar(CarColor cc)
         {
-            Console.WriteLine("{0} lives in the zip code {1}", name, zipCode);
+            Console.WriteLine("The car was painted {0} with the code {1}",
+                cc, (int)cc);
         }
-
 
     }
 }
