@@ -15,14 +15,27 @@ namespace ConsoleApp1
         static void Main(string[] args)
         {
 
-            // ----- ENUM -----
-            CarColor car1 = CarColor.Blue;
-            PaintCar(car1);
+            // Create a Rectangle
+            Rectangle rect1;
 
+            // Add values to it and run the Area method
+            rect1.length = 200;
+            rect1.width = 50;
+            Console.WriteLine("Area of rect1 : {0}",
+                rect1.Area());
 
-            Console.ReadLine();
+            // Use a constructor to create a Rectangle
+            Rectangle rect2 = new Rectangle(100, 40);
 
-             
+            // If you assign one Rectangle to another
+            // you are setting the values and not
+            // creating a reference
+            rect2 = rect1;
+            rect1.length = 33;
+
+            Console.WriteLine("rect2.length : {0}",
+                rect2.length);
+
 
 
             // Excepts input up until a newline, but it is here to 
@@ -32,29 +45,27 @@ namespace ConsoleApp1
 
         }
 
-        // ----- ENUM -----
-        // ----- ENUM -----
-        // An enum is a custom data type with
-        // key value pairs. They allow you to
-        // use symbolic names to represent data
-        // The first number is 0 by default unless
-        // you change it
-        // You can define the underlying type
-        // or leave it as int as default
+        // ----- STRUCTS -----
+        // A struct is a user defined type that
+        // contain multiple fields and methods
 
-        enum CarColor : byte
+        struct Rectangle
         {
-            Orange = 1,
-            Blue,
-            Green,
-            Red,
-            Yellow
-        }
+            public double length;
+            public double width;
 
-        static void PaintCar(CarColor cc)
-        {
-            Console.WriteLine("The car was painted {0} with the code {1}",
-                cc, (int)cc);
+            // You can create a constructor method
+            // that will set the values for fields
+            public Rectangle(double l = 1, double w = 1)
+            {
+                length = l;
+                width = w;
+            }
+
+            public double Area()
+            {
+                return length * width;
+            }
         }
 
     }
