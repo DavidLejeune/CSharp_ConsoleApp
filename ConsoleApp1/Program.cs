@@ -27,7 +27,18 @@ namespace ConsoleApp1
             Console.WriteLine("x = {0}",
                 x);
 
+            // ----- OUT PARAMETER -----
+            // You can pass a variable as an output 
+            // variable even without assigning a
+            // value to it
+            int solution;
 
+            // A parameter passed with out has its
+            // value assigned in the method
+            DoubleIt(15, out solution);
+
+            Console.WriteLine("15 * 2 = {0}",
+                solution);
 
 
 
@@ -37,6 +48,14 @@ namespace ConsoleApp1
             // Read() excepts a single character
             Console.ReadLine();
 
+        }
+
+        // ----- OUT PARAMETER -----
+        // A parameter marked with out must be assigned 
+        // a value in the method
+        static void DoubleIt(int x, out int solution)
+        {
+            solution = x * 2;
         }
 
         // ----- PASS BY VALUE -----
@@ -54,6 +73,8 @@ namespace ConsoleApp1
             y = temp;
             return x + y;
         }
+
+
 
     }
 }
