@@ -13,117 +13,98 @@ namespace ConsoleApp1
 {
     class Animal
     {
-        // Define fields that are protected with private
-        // Private fields can only be accessed by
-        // methods in the class and they are not 
-        // accessible by subclasses
-        // protected fields can only be accessed by
-        // methods in the class and by subclasses
         private string name;
-        private string sound;
 
-        // You can define constants
-        public const string SHELTER = "Derek's Home for Animals";
+        // A protected field can be changed by
+        // a subclass directly
+        protected string sound;
 
-        // You can define read-only fields that are set
-        // at runtime in constructors, but then can't
-        // be changed
-        public readonly int idNum;
+        // Inheritance has a "is-a" relationship, 
+        // while an aggregation or delegate 
+        // represents a "Has-a" relationship
+        // like we have here with the AnimalIDInfo
+        // object
+        protected AnimalIDInfo animalIDInfo = new AnimalIDInfo();
 
-        // Method (Capabilities)
-        public void MakeSound()
+        public void SetAnimalIDInfo(int idNum, string owner)
         {
-            Console.WriteLine("{0} says {1}",
-                name, sound);
+            animalIDInfo.IDNum = idNum;
+            animalIDInfo.Owner = owner;
         }
 
-        // Default constructor
+        public void GetAnimalIDInfo()
+        {
+            Console.WriteLine($"{Name} has the ID of {animalIDInfo.IDNum} and is owned by {animalIDInfo.Owner}");
+        }
+
+        // Added virtual so that this method can
+        // be overridden by subclasses
+        // You must add override to the method in 
+        // the subclass
+        public virtual void MakeSound()
+        {
+            Console.WriteLine($"{Name} says {Sound}");
+        }
+
         public Animal()
         : this("No Name", "No Sound") { }
 
-        // Constructor called if only name is passed
-        // this passes the parameters to the next
-        // constructor
         public Animal(string name)
             : this(name, "No Sound") { }
 
-        // Constructor that receives parameters
-        public Animal(string name,
-            string sound)
+        public Animal(string name, string sound)
         {
-            SetName(name);
+            Name = name;
             Sound = sound;
-
-            // Increment the number of animals
-            // property
-            NumOfAnimals = 1;
-
-            // Define the read-only value which is
-            // the same for all Animals
-            Random rnd = new Random();
-            idNum = rnd.Next(1, 2147483640);
         }
 
-        // Setters (Mutators) protect the fields 
-        // from receiving bad data
-        public void SetName(string name)
+        public string Name
         {
-            // Any checks if any character in the string 
-            // is a number and if so returns true
-            // Since we won't allow numbers we will 
-            // protect our data
-            if (!name.Any(char.IsDigit))
+            get { return name; }
+            set
             {
-                this.name = name;
-            }
-            else
-            {
-                // We have this duplicated code because 
-                // everything isn't a property
-                this.name = "No Name";
-                Console.WriteLine("Name can't contain numbers");
+                if (!value.Any(char.IsDigit))
+                {
+                    name = "No Name";
+                }
+                else
+                {
+                    name = value;
+                }
             }
         }
 
-        // Getters (Accessors) can provide output
-        // aside from the value stored
-        public string GetName()
-        {
-            return name;
-        }
-
-        // The preferred way to define getters and
-        // setters is through properties
         public string Sound
         {
             get { return sound; }
             set
             {
-                // value is assigned the value passed in
                 if (value.Length > 10)
                 {
                     sound = "No Sound";
-                    Console.WriteLine("Sound is too long");
                 }
-                else
-                {
-                    sound = value;
-                }
+                sound = value;
             }
         }
 
-        // You can have the getters and setters
-        // generated for you like this and also
-        // set the default value
-        public string Owner { get; set; } = "No Owner";
-
-        // You can also define static properties
-        public static int numOfAnimals = 0;
-
-        public static int NumOfAnimals
+        // You can create inner classes that are 
+        // normally helper classes for the outer 
+        // class because it can access private
+        // members of the outer class
+        public class AnimalHealth
         {
-            get { return numOfAnimals; }
-            set { numOfAnimals += value; }
+            public bool HealthyWeight(double height,
+                double weight)
+            {
+                double calc = height / weight;
+
+                if ((calc >= .18) && (calc <= .27))
+                {
+                    return true;
+                }
+                else return false;
+            }
+
         }
 
     }
