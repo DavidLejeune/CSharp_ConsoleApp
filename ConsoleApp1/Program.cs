@@ -1,13 +1,8 @@
 ﻿using System;
-using System.Collections;
-using System.Numerics;
-
-// Needed for StringBuilder
+using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
-// For culture specific formating
-using System.Globalization;
 
 // You use a namespace to define globally unique objects
 namespace ConsoleApp1
@@ -16,23 +11,22 @@ namespace ConsoleApp1
     // by objects. I'll get more into this later
     class Program
     {
-        // The main function is where execution begins
-        // static functions belong to the class and 
-        // can be executed without needing to create 
-        // an object
-        // void means that this function doesn't return
-        // a value after it executes, but it is 
-        // common to use int instead and return an 
-        // integer value 0 : when successfully executed
-        // or -1 when an error occurred
-        // This function can receive multiple string
-        // values that are saved into an array
 
         static void Main(string[] args)
         {
 
-            
-            
+            // ----- PASSING BY VALUE -----
+            double x = 5;
+            double y = 4;
+
+            Console.WriteLine("5 + 4 = {0}",
+                GetSum(x, y));
+
+            // Even though the value for x changed in 
+            // method it remains unchanged here
+            Console.WriteLine("x = {0}",
+                x);
+
 
 
 
@@ -45,7 +39,22 @@ namespace ConsoleApp1
 
         }
 
-        
+        // ----- PASS BY VALUE -----
+        // By default values are passed into a method
+        // and not a reference to the variable passed
+        // Changes made to those values do not effect the
+        // variables outside of the method
+
+        // If you assign a value then it is optional to 
+        // pass
+        static double GetSum(double x = 1, double y = 1)
+        {
+            double temp = x;
+            x = y;
+            y = temp;
+            return x + y;
+        }
+
     }
 }
 
