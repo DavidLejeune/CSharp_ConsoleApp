@@ -23,7 +23,11 @@ namespace ConsoleApp1
             Console.WriteLine("1 + 2 + 3 + 5 = {0}",
                 GetSumMore(1, 2, 3, 5));
 
-
+            // ----- NAMED PARAMETERS -----
+            // You can pass values in any order if
+            // you used named parameters
+            PrintInfo(zipCode: 15147,
+                name: "Derek Banas");
 
 
 
@@ -47,6 +51,13 @@ namespace ConsoleApp1
             }
             return sum;
         }
+
+        // ----- NAMED PARAMETERS -----
+        static void PrintInfo(string name, int zipCode)
+        {
+            Console.WriteLine("{0} lives in the zip code {1}", name, zipCode);
+        }
+
 
     }
 }
