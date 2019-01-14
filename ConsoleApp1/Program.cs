@@ -11,68 +11,30 @@ namespace ConsoleApp1
     // by objects. I'll get more into this later
     class Program
     {
+        /*
+        Bob Attacks Maximus and Deals 74 Damage
+        Maximus Has 69 Health
+ 
+        Maximus Attacks Bob and Deals 6 Damage
+        Bob Has 6 Health
+ 
+        Bob Attacks Maximus and Deals 48 Damage
+        Maximus Has 21 Health
+ 
+        Maximus Attacks Bob and Deals 48 Damage
+        Bob Has -42 Health
+ 
+        Bob has Died and Maximus is Victorious
+ 
+        Game Over
+        */
 
         static void Main(string[] args)
         {
-            Animal whiskers = new Animal()
-            {
-                Name = "Whiskers",
-                Sound = "Meow"
-            };
+            Warrior maximus = new Warrior("Maximus", 1000, 120, 40);
+            Warrior bob = new Warrior("Bob", 1000, 120, 40);
 
-            Dog grover = new Dog()
-            {
-                Name = "Grover",
-                Sound = "Woof",
-                Sound2 = "Grrrrr"
-            };
-
-            // Demonstrate changing the protected
-            // field sound
-            grover.Sound = "Wooooof";
-
-            whiskers.MakeSound();
-            grover.MakeSound();
-
-            // Define the AnimalIDInfo
-            whiskers.SetAnimalIDInfo(12345, "Sally Smith");
-            grover.SetAnimalIDInfo(12346, "Paul Brown");
-
-            whiskers.GetAnimalIDInfo();
-
-            // Test the inner class
-            Animal.AnimalHealth getHealth = new Animal.AnimalHealth();
-
-            Console.WriteLine("Is my animal healthy : {0}", getHealth.HealthyWeight(11, 46));
-
-            // You can define 2 Animal objects but have
-            // one actually be a Dog type. 
-            Animal monkey = new Animal()
-            {
-                Name = "Happy",
-                Sound = "Eeeeee"
-            };
-
-            Animal spot = new Dog()
-            {
-                Name = "Spot",
-                Sound = "Wooooff",
-                Sound2 = "Geerrrr"
-            };
-
-            // The problem is that if you call a 
-            // function in Animal it won't call
-            // the overridden method in Dog unless
-            // the method that might be overridden
-            // is marked virtual
-            spot.MakeSound();
-
-            // This is an example of how Polymorphism
-            // allows a subclass to override a method
-            // in the super class and even if the 
-            // subclass is defined as the super class
-            // type the correct method will be called
-
+            Battle.StartFight(maximus, bob);
 
             Console.ReadLine();
 
