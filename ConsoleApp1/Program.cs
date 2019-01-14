@@ -23,6 +23,40 @@ namespace ConsoleApp1
             Shape[] shapes = {new Circle(5),
             new Rectangle(4,5)};
 
+            // Cycle through shapes and print
+            // the area
+            foreach (Shape s in shapes)
+            {
+                // Call the overidden method
+                s.GetInfo();
+
+                Console.WriteLine("{0} Area : {1:f2}",
+                s.Name, s.Area());
+
+                // You can use as to check if an
+                // object is of a specific type
+                Circle testCirc = s as Circle;
+                if (testCirc == null)
+                {
+                    Console.WriteLine("This isn't a Circle");
+                }
+
+                // You can use is to check the data
+                // type
+                if (s is Circle)
+                {
+                    Console.WriteLine("This isn't a Rectangle");
+                }
+
+
+                Console.WriteLine();
+            }
+
+
+
+
+            Console.ReadLine();
+
         }
 
     }
