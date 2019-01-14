@@ -11,11 +11,17 @@ namespace ConsoleApp1
     // by objects. I'll get more into this later
     class Program
     {
-
+        // This time we cover Abstract Classes, Abstract
+        // Methods, Base Classes, Is, As, Casting and
+        // more about Polymorphism
 
         static void Main(string[] args)
         {
-
+            // We can store our shapes in
+            // a Shape array as long as it 
+            // contains subclasses of Shape
+            Shape[] shapes = {new Circle(5),
+            new Rectangle(4,5)};
 
         }
 
