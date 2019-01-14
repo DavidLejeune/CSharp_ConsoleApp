@@ -28,6 +28,19 @@ namespace ConsoleApp1
         // it or you will get the same value over and over
         Random rnd = new Random();
 
+        // Generate a random atack value from 1
+        // to the warriors maximum attack value
+        public double Attack()
+        {
+            return rnd.Next(1, (int)AttkMax);
+        }
+
+        // Generate a random block value from
+        // 1 to the warriors maximum block
+        public double Block()
+        {
+            return rnd.Next(1, (int)BlockMax);
+        }
 
 
     }
