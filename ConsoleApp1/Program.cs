@@ -52,7 +52,15 @@ namespace ConsoleApp1
                 Console.WriteLine();
             }
 
+            // You can store any class as a base
+            // class and call the subclass methods
+            // even if they don't exist in the base
+            // class by casting
+            object circ1 = new Circle(4);
 
+            Circle circ2 = (Circle)circ1;
+            Console.WriteLine("The {0} Area is {1:f2}",
+                circ2.Name, circ2.Area());
 
 
             Console.ReadLine();
