@@ -24,6 +24,10 @@ namespace ConsoleApp1
             BlockMax = blockMax;
         }
 
+        // Always create a single Random instance and reuse
+        // it or you will get the same value over and over
+        Random rnd = new Random();
+
 
 
     }
