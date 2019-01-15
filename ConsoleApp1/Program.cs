@@ -32,7 +32,22 @@ namespace ConsoleApp1
                 Console.WriteLine("The {0} can't be driven", buick.Brand);
             }
 
+            // We are now modeling the act of
+            // picking up a remote, aiming it
+            // at the TV, clicking the power
+            // button and then watching as
+            // the TV turns on and off
 
+            // Pick up the TV remote
+            IElectronicDevice TV = TVRemote.GetDevice();
+
+            // Create the power button
+            PowerButton powBut = new PowerButton(TV);
+
+            // Turn the TV on and off with each 
+            // press
+            powBut.Execute();
+            powBut.Undo();
 
             Console.ReadLine();
 
