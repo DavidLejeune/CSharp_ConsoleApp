@@ -4,7 +4,6 @@ using System.Text;
 
 namespace ConsoleApp1
 {
-    class Television
     // Because we implemented the 
     // ElectronicDevice interface any
     // other device we create will know
